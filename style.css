@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.flex_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rabat {
+  background-color: red;
+  padding: 0.5rem;
+}
