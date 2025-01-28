@@ -164,7 +164,7 @@ img:hover {
   margin-top: 1rem;
 }
 
-a {
+.knap {
   border: 1px solid #000000; /* Sorte ramme omkring teksten */
   padding: 10px; /* Polstring inde i boksen */
   background-color: transparent; /* Gør baggrunden gennemsigtig */
