@@ -28,9 +28,13 @@ header {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
+main {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
 .logo img {
-  width: 50px;
-  height: 50px;
+  height: 40px;
 }
 
 nav {
@@ -131,7 +135,7 @@ h1 {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
+  grid-template-columns: repeat(2, 1fr); /* Fire kolonner */
   grid-template-rows: repeat(5, auto);
   gap: 15px;
 }
@@ -145,6 +149,26 @@ h1 {
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+@media (min-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
+    grid-template-rows: repeat(5, auto);
+    gap: 15px;
+  }
+
+  .box {
+    grid-row: span 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    gap: 10px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
 }
 .effekt_box {
   overflow: hidden;
