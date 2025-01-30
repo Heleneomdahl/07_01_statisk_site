@@ -22,7 +22,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
   .then((data) => {
     productContainer.innerHTML = `
      <h1>Produkt</h1>
-        <p class="kategori_øverst">Hjem > Sport > Accessories > Tasker > Puma > Big Cat Backpack Black </p>
+        <p class="kategori_øverst"><a class="hjem_øverst" href="index.html">Hjem</a> > ${data.category} > ${data.subcategory} > ${data.articletype} > ${data.brandname} > ${data.productdisplayname} </p>
 
         <div class="grid_1_1 box">
             <div class="billede_produkt">
@@ -33,7 +33,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
                 <h3>Mærke:</h3>
                 <p class="tekst_produkt">${data.brandname}</p>
                 <h3>Pris:</h3>
-                <p class="tekst_produkt">${data.price}</p>
+                <p class="tekst_produkt">${data.price},- DKK</p>
                 <h3>Kategori:</h3>
                 <p class="tekst_produkt">${data.category}</p>
                 <h3>Varenummer (id): </h3>

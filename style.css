@@ -155,7 +155,7 @@ h2 {
   border-radius: 8px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
@@ -177,7 +177,7 @@ h2 {
 .effekt_box {
   overflow: hidden;
 }
-img:hover {
+.produktliste_billeder:hover {
   transform: scale(1.1);
 }
 
@@ -211,8 +211,21 @@ a:hover {
   text-decoration: underline;
 }
 
+.grå_tekst {
+  color: #818181;
+  font-size: 14px;
+}
+
 .før_pris {
-  text-decoration: line-through;
+  text-decoration: line-through 0.5px;
+}
+
+.procenter {
+  color: red;
+}
+
+.rød_tekst {
+  color: red;
 }
 
 .udsolgt_box {
@@ -237,7 +250,7 @@ a:hover {
 
 /* produkt */
 
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .grid_1_1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,6 +263,11 @@ a:hover {
 
 .kategori_øverst {
   padding-bottom: 1rem;
+}
+
+.hjem_øverst {
+  text-decoration: none;
+  color: #000000;
 }
 
 .produkt_overskrift {
