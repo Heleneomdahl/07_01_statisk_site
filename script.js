@@ -33,7 +33,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
                 <h3>Mærke:</h3>
                 <p class="tekst_produkt">${data.brandname}</p>
                 <h3>Pris:</h3>
-                <p class="tekst_produkt">${data.price},- DKK</p>
+                <p class="tekst_produkt">${data.price} DKK</p>
                 <h3>Kategori:</h3>
                 <p class="tekst_produkt">${data.category}</p>
                 <h3>Varenummer (id): </h3>
