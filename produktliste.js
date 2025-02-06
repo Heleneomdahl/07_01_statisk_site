@@ -17,26 +17,22 @@ function showList(data) {
     .map(
       (elem) => `
         <article class="box">
-            <div class=" udsolgt_box effekt_box">
+            <div class="udsolgt_box effekt_box">
                 <img class="${elem.soldout && "udsolgt_billede"}" src="https://kea-alt-del.dk/t7/images/webp/640/${elem.id}.webp" alt="rygsæk">
-                <p class="${elem.soldout && "rabat"} ${!elem.soldout && "hide"} >Udsolgt </p>
-                <p class="${elem.discount && "procent"} ${!elem.discount && "hide"} >- ${elem.discount}%</p>
+                <p class="${!elem.soldout && "hide"} >Udsolgt </p>
             </div>
-
-                <h2>${elem.productdisplayname}</h2>
-
-                <p>${elem.subcategory} | ${elem.brandname}</p>
+            <h2>${elem.productdisplayname}</h2>
+             <p>${elem.subcategory} | ${elem.brandname}</p>
 
             <div class="price">
-                <p> ${elem.price} DKK</p>
-                <p class="grå_tekst">Oprindeligt: <span class="før_pris">${elem.price} DKK</span> <span
-                            class="${elem.soldout && "procenter"} ${!elem.soldout && "hide"} > -${elem.discount}%</span>
-                    </p>
+                <p>Ny pris: ${elem.price - (elem.price * elem.discount) / 100} DKK <span class="rød_tekst">-${elem.discount}%</span></p>
+                <p>Før pris ${elem.price} DKK</p>
             </div>
-                <a class="knap" href="produkt.html?id=${elem.id}">Se produkt</a>
+
+            <a class="knap" href="produkt.html?id=${elem.id}">Se produkt</a>
             <div class="procent">
                     <p class="${elem.discount && "rabat"} ${!elem.discount && "hide"}">Deal</p>
-                </div>
+            </div>
 
         </article>`
     )
