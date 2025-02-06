@@ -27,9 +27,10 @@ function showList(data) {
              <p>${elem.subcategory} | ${elem.brandname}</p>
 
             <div class="price">
-                <p class="${!elem.discount && "hide"}">${elem.price - (elem.price * elem.discount) / 100} DKK <span class="rød_tekst">-${elem.discount}%</span></p>
+                <p class="${elem.discount ? "discount-price" : "hide"}">
+              ${(elem.price - (elem.price * elem.discount) / 100).toFixed(2)} DKK <span class="rød_tekst">-${elem.discount}%</span></p>
               <p class="${elem.discount && "hide"}">${elem.price} DKK</p>
-                <p class="${elem.discount ? "grå_tekst" : "hide"}">Oprindeligt: ${elem.price} DKK</p>
+                <p class="${elem.discount ? "grå_tekst" : "hide"}">Oprindeligt: ${elem.price.toFixed(2)} DKK</p>
             </div>
 
             <a class="knap" href="produkt.html?id=${elem.id}">Se produkt</a>
