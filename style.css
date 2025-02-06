@@ -254,10 +254,18 @@ a:hover {
 
 /* produkt */
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
   .grid_1_1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  img {
+    max-height: 600px;
   }
 }
 

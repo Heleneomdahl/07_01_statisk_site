@@ -9,7 +9,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${myProductId}`)
   .then((response) => response.json())
   .then((elem) => {
     productContainer.innerHTML = `   
-        <div class="grid_1_1 box ${elem.discount && "tekst_udsolgt"}">
+        <div class="grid_1_1 ${elem.discount && "tekst_udsolgt"}">
             <div class="billede_produkt">
                 <img src="https://kea-alt-del.dk/t7/images/webp/640/${myProductId}.webp" alt="rygsæk">
             </div>
