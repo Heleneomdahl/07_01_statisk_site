@@ -216,9 +216,6 @@ a:hover {
 .grå_tekst {
   color: #818181;
   font-size: 14px;
-}
-
-.før_pris {
   text-decoration: line-through 0.5px;
 }
 
@@ -241,13 +238,14 @@ a:hover {
 
 .udsolgt_tekst {
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 5px;
   text-align: center;
   color: white;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
 .hide {

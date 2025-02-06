@@ -17,16 +17,19 @@ function showList(data) {
     .map(
       (elem) => `
         <article class="box">
- <div>
+ <div class="udsolgt_box">
             <img class="${elem.soldout && "udsolgt_billede"}" src="https://kea-alt-del.dk/t7/images/webp/640/${elem.id}.webp" alt="rygsæk">
-            <p class="udsolgt_tekst ${!elem.soldout && "hide"}">Udsolgt</p>
+            <div>
+                <p class="udsolgt_tekst ${!elem.soldout && "hide"}">Udsolgt</p>
+                </div>
 </div>
             <h2>${elem.productdisplayname}</h2>
              <p>${elem.subcategory} | ${elem.brandname}</p>
 
             <div class="price">
                 <p class="${!elem.discount && "hide"}">${elem.price - (elem.price * elem.discount) / 100} DKK <span class="rød_tekst">-${elem.discount}%</span></p>
-                <p>${elem.price} DKK</p>
+              <p class="${elem.discount && "hide"}">${elem.price} DKK</p>
+                <p class="${elem.discount ? "grå_tekst" : "hide"}">Oprindeligt: ${elem.price} DKK</p>
             </div>
 
             <a class="knap" href="produkt.html?id=${elem.id}">Se produkt</a>
