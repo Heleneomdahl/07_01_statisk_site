@@ -1,34 +1,35 @@
 // data
-const mycategori = new URLSearchParams(window.location.search).get("id");
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const myProductId = urlParams.get("id");
 
-let productId = 1526;
-let productContainer = document.querySelector(".productContainer");
+let productContainer = document.querySelector(".grid_1_1");
 
-fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
+fetch(`https://kea-alt-del.dk/t7/api/products/${myProductId}`)
   .then((response) => response.json())
-  .then(showProducts);
-
-function showProducts(data) {
-  console.log(data);
-  let markup = ` <p class="kategori_øverst"><a class="hjem_øverst" href="index.html">Hjem</a> > ${data.category} > ${data.subcategory} > ${data.articletype} > ${data.brandname} > ${data.productdisplayname} </p>
-        <div class="grid_1_1 box">
+  .then((elem) => {
+    productContainer.innerHTML = `   
+        <div class="grid_1_1 box ${elem.discount && "tekst_udsolgt"}">
             <div class="billede_produkt">
-                <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="rygsæk">
+                <img src="https://kea-alt-del.dk/t7/images/webp/640/${myProductId}.webp" alt="rygsæk">
             </div>
             <div>
-                <h2 class="productName">${data.productdisplayname}</h2>
+                <h2 class="productName">${elem.productdisplayname}</h2>
+                
                 <h3>Mærke:</h3>
-                <p class="tekst_produkt">${data.brandname}</p>
+                <p class="tekst_produkt">${elem.brandname}</p>
+                
                 <h3>Pris:</h3>
-                <p class="tekst_produkt">${data.price} DKK</p>
+                <p class="tekst_produkt">${elem.price} DKK</p>
+                
                 <h3>Kategori:</h3>
-                <p class="tekst_produkt">${data.category}</p>
+                <p class="tekst_produkt">${elem.category}</p>
+                
                 <h3>Varenummer (id): </h3>
-                <p class="tekst_produkt">${data.id}</p>
+                <p class="tekst_produkt">${elem.id}</p>
                 <div class="læg_i_kurv">
                     <a class="knap" href="produkt.html">Læg i indkøbskurv</a>
                 </div>
-            </div> `;
-
-  productContainer.innerHTML = markup;
-}
+            </div>
+        </div>`;
+  });

@@ -16,8 +16,29 @@ function showList(data) {
   const markup = data
     .map(
       (elem) => `
-  <article><h2>${elem.productdisplayname}</h2></article>
-  `
+        <article class="box">
+            <div class=" udsolgt_box effekt_box">
+                <img class="${elem.soldout && "udsolgt_billede"}" src="https://kea-alt-del.dk/t7/images/webp/640/${elem.id}.webp" alt="rygsæk">
+                <p class="${elem.soldout && "rabat"} ${!elem.soldout && "hide"} >Udsolgt </p>
+                <p class="${elem.discount && "procent"} ${!elem.discount && "hide"} >- ${elem.discount}%</p>
+            </div>
+
+                <h2>${elem.productdisplayname}</h2>
+
+                <p>${elem.subcategory} | ${elem.brandname}</p>
+
+            <div class="price">
+                <p> ${elem.price} DKK</p>
+                <p class="grå_tekst">Oprindeligt: <span class="før_pris">${elem.price} DKK</span> <span
+                            class="${elem.soldout && "procenter"} ${!elem.soldout && "hide"} > -${elem.discount}%</span>
+                    </p>
+            </div>
+                <a class="knap" href="produkt.html?id=${elem.id}">Se produkt</a>
+            <div class="procent">
+                    <p class="${elem.discount && "rabat"} ${!elem.discount && "hide"}">Deal</p>
+                </div>
+
+        </article>`
     )
     .join("");
   productContainer.innerHTML = markup;

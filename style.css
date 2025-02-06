@@ -26,6 +26,7 @@ header {
   padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 main {
@@ -246,6 +247,10 @@ a:hover {
   text-align: center;
   color: white;
   font-size: 3rem;
+}
+
+.hide {
+  display: none;
 }
 
 /* produkt */

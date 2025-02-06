@@ -1,32 +1,16 @@
+console.log("index script loaded...");
 
-let knap = document.querySelector(".knap");
+const listContainer = document.querySelector(".container");
 
-const mycategori = new URLSearchParams(window.location.search).get("category");
-console.log("productliste loader... med categori:", mycategori);
-
-const productlist = document.querySelector(".tekst_produkt");
-const overskrift = document.querySelector("h2");
-
-
+fetch("https://kea-alt-del.dk/t7/api/categories")
   .then((response) => response.json())
   .then(showList);
 
 function showList(data) {
-  console.log(data);
-  markup = data
-    .map(
-      (category) =>
-        ` <h1>Kategorier</h1>
-        <div class=”category_list_container”>
-            <a class="knap" href="produktliste.html">T-shirts</a>
-            <a class="knap" href="produktliste.html">Trøjer</a>
-            <a class="knap" href="produktliste.html">Bukser</a>
-            <a class="knap" href="produktliste.html">Shorts</a>
-            <a class="knap" href="produktliste.html">Sport</a>
-            <a class="knap" href="produktliste.html">Accessories</a>
-        </div> `
-    )
-    .json("");
-  console.log(markup);
-  knap.innerHTML = markup;
+  console.log("Mine data er", data);
+
+  const markup = data.map((elem) => ` <a class="knap" href="produktliste.html?category=${elem.category}">${elem.category}</a>`).join("");
+
+  console.log("Min markup er", markup);
+  listContainer.innerHTML = markup;
 }
