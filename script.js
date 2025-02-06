@@ -14,16 +14,29 @@ function menuClick() {
 }
 
 // data
+
 let productId = 1526;
 let productContainer = document.querySelector(".productContainer");
 
-fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
-  .then((response) => response.json())
-  .then((data) => {
-    productContainer.innerHTML = `
-     <h1>Produkt</h1>
-        <p class="kategori_øverst"><a class="hjem_øverst" href="index.html">Hjem</a> > ${data.category} > ${data.subcategory} > ${data.articletype} > ${data.brandname} > ${data.productdisplayname} </p>
+const mycategori = new URLSearchParams(window.location.search).get("category");
+console.log("productliste loader... med categori:", mycategori);
 
+const productlist = document.querySelector(".tekst_produkt");
+const overskrift = document.querySelector("h2");
+
+overskrift.innerHTML = mycategori;
+
+fetch(`https://kea-alt-del.dk/t7/api/products?category=${mycategori}`)
+  // https://kea-alt-del.dk/t7/api/products/${productId} billeder
+  .then((response) => response.json())
+  .then(showProducts);
+
+function showProducts(data) {
+  console.log(data);
+  markup = data
+    .map(
+      (data) =>
+        ` <p class="kategori_øverst"><a class="hjem_øverst" href="index.html">Hjem</a> > ${data.category} > ${data.subcategory} > ${data.articletype} > ${data.brandname} > ${data.productdisplayname} </p>
         <div class="grid_1_1 box">
             <div class="billede_produkt">
                 <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="rygsæk">
@@ -41,14 +54,9 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
                 <div class="læg_i_kurv">
                     <a class="knap" href="produkt.html">Læg i indkøbskurv</a>
                 </div>
-
-
-
-
-
-            </div>
-
-
-        </div>
-    `;
-  });
+            </div> `
+    )
+    .json("");
+  console.log(markup);
+  productContainer.innerHTML = markup;
+}
