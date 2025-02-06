@@ -165,6 +165,7 @@ h2 {
   }
 
   .box {
+    position: relative;
     grid-row: span 5;
     display: grid;
     grid-template-rows: subgrid;
@@ -227,6 +228,7 @@ a:hover {
 
 .rød_tekst {
   color: red;
+  text-decoration: none;
 }
 
 .udsolgt_box {
@@ -239,14 +241,13 @@ a:hover {
 
 .udsolgt_tekst {
   position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 20%;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
   color: white;
-  font-size: 3rem;
+  font-size: 2.2rem;
 }
 
 .hide {
