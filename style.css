@@ -10,6 +10,7 @@ img {
   transition: transform 0.3s ease;
 }
 
+
 /* header */
 * {
   margin: 0;
@@ -26,11 +27,16 @@ header {
   padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+main {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .logo img {
-  width: 50px;
-  height: 50px;
+  height: 40px;
 }
 
 nav {
@@ -125,15 +131,18 @@ nav {
 }
 
 /* generelt */
-
 h1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+h2 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
+  grid-template-columns: repeat(2, 1fr); /* Fire kolonner */
   grid-template-rows: repeat(5, auto);
   gap: 15px;
 }
@@ -148,10 +157,31 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
+    grid-template-rows: repeat(5, auto);
+    gap: 15px;
+  }
+
+  .box {
+    position: relative;
+    grid-row: span 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    gap: 10px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+}
 .effekt_box {
   overflow: hidden;
 }
-img:hover {
+.produktliste_billeder:hover {
   transform: scale(1.1);
 }
 
@@ -166,17 +196,11 @@ img:hover {
   margin-top: 1rem;
 }
 
-/* a {
-  border: 1px solid #000000;
-  padding: 10px;
-  background-color: transparent;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 1rem;
-} */
-
+.knap {
+  border: 1px solid #000000; /* Sorte ramme omkring teksten */
+  padding: 10px; /* Polstring inde i boksen */
+  background-color: transparent; /* Gør baggrunden gennemsigtig */
+  color: #000000; /* Farve på teksten */
 p {
   padding-top: 10px;
 }
@@ -185,8 +209,19 @@ a:hover {
   text-decoration: underline;
 }
 
-.før_pris {
-  text-decoration: line-through;
+.grå_tekst {
+  color: #818181;
+  font-size: 14px;
+  text-decoration: line-through 0.5px;
+}
+
+.procenter {
+  color: red;
+}
+
+.rød_tekst {
+  color: red;
+  text-decoration: none;
 }
 
 .udsolgt_box {
@@ -199,22 +234,34 @@ a:hover {
 
 .udsolgt_tekst {
   position: absolute;
-  top: 52%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 5px;
   text-align: center;
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+.hide {
+  display: none;
 }
 
 /* produkt */
 
 @media (min-width: 700px) {
   .grid_1_1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  img {
+    max-height: 600px;
   }
 }
 
@@ -224,6 +271,11 @@ a:hover {
 
 .kategori_øverst {
   padding-bottom: 1rem;
+}
+
+.hjem_øverst {
+  text-decoration: none;
+  color: #000000;
 }
 
 .produkt_overskrift {
