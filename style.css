@@ -10,7 +10,8 @@ img {
   transition: transform 0.3s ease;
 }
 
-/*header*/
+
+/* header */
 * {
   margin: 0;
   padding: 0;
@@ -129,6 +130,7 @@ nav {
   }
 }
 
+/* generelt */
 h1 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -199,12 +201,6 @@ h2 {
   padding: 10px; /* Polstring inde i boksen */
   background-color: transparent; /* Gør baggrunden gennemsigtig */
   color: #000000; /* Farve på teksten */
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 1rem;
-}
-
 p {
   padding-top: 10px;
 }
